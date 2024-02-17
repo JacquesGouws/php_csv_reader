@@ -1,23 +1,43 @@
 <?php
 
+  /*
+  |--------------------------------------------------------------------------------
+  | PHP CSV Reader
+  |--------------------------------------------------------------------------------
+  |
+  | Description: A simple wrapper class for extracting CSV data into an array.
+  | Author: Jacques Gouws
+  | Email: jacquesgouws.dev@gmail.com
+  | Date: 2024-02-17
+  |
+  */
+
   use League\Csv\Reader;
   
   class CsvReader{
 
+    // Encoding Character
     private string $encoding;
 
+    // Delimiter Character
     private string $delimiter;
 
+    // Enclosure Character
     private string $enclosure;
 
+    // Escape Character
     private string $escape;
 
+    // Path to the CSV file
     private string $file;
 
+    // Flag - Determines if empty records should be included in array output.
     private bool $includeEmptyRecords;
     
-    private bool $headerOffset;
+    // Flag - Determines the offset of the header record
+    private int $headerOffset;
 
+    // League CSV reader object
     private Reader $reader;
 
     /*
@@ -26,6 +46,7 @@
     | Default options will be set if not passed to the constructor
     |
     */
+
     public function __construct(array $options = []){
 
       $this->initializeDefaultOptions();
@@ -45,9 +66,10 @@
     /*
     |
     | Initialize default options.
-    | These options will override php spreadsheet defaults.
+    | These options will override League CSV defaults.
     |
     */
+
     public function initializeDefaultOptions() : void {
 
       $this->setDelimiter(',');
@@ -83,8 +105,8 @@
 
     /*
     |
-    | Initialize defined user options.
-    | Getter and Setter access methods are used to set the defined options.
+    | Initialize the main reader object.
+    | Options and flags are set based on this instance properties.
     |
     */
 
@@ -108,20 +130,23 @@
 
     /*
     |
-    | Initialize defined user options.
-    | Getter and Setter access methods are used to set the defined options.
+    | Extract the CSV data.
+    | If a header offset is set, an assocciative array will be returned.
     |
     */
 
-    public function extract(){
+    public function extract() : array {
 
       $this->initializeReader();
-
-      $records = iterator_to_array($this->getReader()->getRecords());
-
-      return $records;
+      return iterator_to_array($this->getReader()->getRecords());
 
     }
+
+    /*
+    |
+    | Getter and Setter mutator methods.
+    |
+    */
 
     public function getEncoding(): string {return $this->encoding;}
     public function setEncoding(string $encoding): void {$this->encoding = $encoding;}
