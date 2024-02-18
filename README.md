@@ -97,11 +97,28 @@ $reader->setFile('path/to/file.csv');
 
 ```
 
+### Specifying reader options
+
+The following options are currently available to a reader instance:
+
+** These options can either be set when calling the constructor or via setter methods.
+
 ```php
 
-$reader->load('sample.csv');
+[
 
-``` php_csv_reader
-A simple wrapper class for extracting CSV data into an array.
+'file'         => ''
+'delimiter'    => ','
+'escape'       => ''
+'enclosure'    => ''
+'emptyRecords' => true
+'headerOffset' => 0
+
+]
+
+```
+
+### Retrieving reader options
+
 
 
