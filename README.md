@@ -8,6 +8,10 @@ Easily parse csv documents and extract records using a minimalist syntax.
 
 ### Dependencies
 
+This wrapper is an abstraction layer build from the popular League CSV package. You can use composer to easily require it.
+
+** We have chosen the latest version of the package compatible with PHP 7.4
+
 ```php
 
 composer require League/CSV:7.8
