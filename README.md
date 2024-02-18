@@ -8,40 +8,27 @@ Easily parse csv documents and extract records using a minimalist syntax.
 
 ### Dependencies
 
-This wrapper is an abstraction layer build from the popular League CSV package. You can use composer to easily require it.
-
-** We have chosen the latest version of the package compatible with PHP 7.4
-
-```php
-
-composer require League/CSV:7.8
-
-```
+- League CSV 7.4
+- PHP 7.4
 
 
 ### Quick start example
 
-The example below saves all csv records from a file as an associative array.
+The example below prints all csv records from a file as an associative array.
 
 ```php
 
 <?php
 
-// Require the composer autoloader
 require 'vendor/autoload.php'
-
-// Require the csv reader wrapper class
 require 'php_csv_reader';
 
-// Create a new Reader instance with user defined options.
 $reader = new CsvReader([
  'file' => 'path/to/file.csv'
 ]);
 
-// Extract the records into an array
 $records = $reader->extract();
 
-// Print the output
 print_r($records);
 
 ?>
@@ -71,7 +58,13 @@ require 'php_csv_reader';
 
 ```php
 
-$reader = new Reader();
+// Instanting a reader with default options
+$reader = new CsvReader();
+
+// Instantiating a reader with user defined options
+$reader = new CsvReader([
+ // options
+]);
 
 ```
 
@@ -79,7 +72,7 @@ $reader = new Reader();
 
 ```php
 
-$reader = new Reader('sample.csv');
+$reader = new CSVReader();
 
 ```
 
