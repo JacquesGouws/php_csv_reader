@@ -64,7 +64,7 @@ $reader = new CsvReader();
 
 ```
 
-Or instantiate a reader object using specified options by passing an array of key value pairs:
+Or instantiate a reader object that uses specified options by passing an array of key value pairs:
 
 ```php
 
@@ -75,11 +75,25 @@ $reader = new CsvReader([
 
 ```
 
-### Importing a csv document
+### Importing a CSV document
+
+Specifying a path to a CSV file using the 'file' option will import the document for parsing:
 
 ```php
 
-$reader = new CSVReader();
+$reader = new CSVReader([
+ 'file' => 'path/to/file.csv'
+]);
+
+```
+
+It is also possible to specify a path using a set method:
+
+```php
+
+$reader = new CsvReader();
+
+$reader->setFile('path/to/file.csv');
 
 ```
 
