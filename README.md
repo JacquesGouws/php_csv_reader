@@ -58,12 +58,13 @@ require 'php_csv_reader';
 
 ```php
 
-// Instanting a reader with default options
+// With Default options
 $reader = new CsvReader();
 
-// Instantiating a reader with user defined options
+// With User defined options
 $reader = new CsvReader([
- // options
+ 'headerOffset' => 0,
+ 'emptyRecords' => false
 ]);
 
 ```
