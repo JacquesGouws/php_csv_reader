@@ -30,14 +30,12 @@ The example below saves all csv records from a file as an associative array.
 // Require the composer autoloader
 require 'vendor/autoload.php'
 
-// require the csv reader wrapper class
+// Require the csv reader wrapper class
 require 'php_csv_reader';
 
 // Create a new Reader instance with user defined options.
 $reader = new CsvReader([
- 'file'        => 'path/to/file.csv',
- 'headerOffset => 0
- 'emptyRecords => true,
+ 'file' => 'path/to/file.csv'
 ]);
 
 // Extract the records into an array
