@@ -25,14 +25,28 @@ The example below saves all csv records from a file as an associative array.
 
 ```php
 
+<?php
+
+// Require the composer autoloader
 require 'vendor/autoload.php'
+
+// require the csv reader wrapper class
 require 'php_csv_reader';
 
-$reader = new Reader();
+// Create a new Reader instance with user defined options.
+$reader = new CsvReader([
+ 'file'        => 'path/to/file.csv',
+ 'headerOffset => 0
+ 'emptyRecords => true,
+]);
 
-$records = $reader->extract('all', 'sample.csv');
+// Extract the records into an array
+$records = $reader->extract();
 
+// Print the output
 print_r($records);
+
+?>
 
 ```
 
