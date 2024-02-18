@@ -56,12 +56,18 @@ require 'php_csv_reader';
 
 ### Creating a reader object
 
+Instantiate a reader object that uses a set of pre-defined options by passing no arguments to the constructor:
+
 ```php
 
-// With Default options
 $reader = new CsvReader();
 
-// With User defined options
+```
+
+Or instantiate a reader object using specified options by passing an array of key value pairs:
+
+```php
+
 $reader = new CsvReader([
  'headerOffset' => 0,
  'emptyRecords' => false
