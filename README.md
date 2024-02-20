@@ -23,8 +23,10 @@ The example below prints all csv records from a file as an associative array.
 require 'vendor/autoload.php'
 require 'php_csv_reader';
 
-$reader = new CsvReader([
- 'file' => 'path/to/file.csv'
+$reader = new CsvReader('path/to/file.csv',[
+   'delimiter' => ',',
+   'enclosure' => '"',
+   'escape'    => '//'
 ]);
 
 $records = $reader->extract();
