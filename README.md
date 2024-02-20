@@ -23,10 +23,9 @@ The example below prints all csv records from a file as an associative array.
 require 'vendor/autoload.php'
 require 'php_csv_reader';
 
-$reader = new CsvReader('path/to/file.csv',[
+$reader = new CsvReader('path/to/file.csv', [
    'delimiter' => ',',
    'enclosure' => '"',
-   'escape'    => '//'
 ]);
 
 $records = $reader->extract();
@@ -58,33 +57,27 @@ require 'php_csv_reader';
 
 ### Creating a reader object
 
-Instantiate a reader object that uses a set of pre-defined options by passing no arguments to the constructor:
+Instantiate a reader object by passing the file path to the constructor. This will import the CSV document for further parsing using a set of pre-defined user options.
 
 ```php
 
-$reader = new CsvReader();
+$reader = new CsvReader('path/to/file.csv');
 
 ```
 
-Or instantiate a reader object that uses specified options by passing an array of key value pairs:
+
+### Defining reader options
+
+An optional array of key value pairs can be passed to the constructor to specify various reader options.
 
 ```php
 
-$reader = new CsvReader([
- 'headerOffset' => 0,
- 'emptyRecords' => false
-]);
-
-```
-
-### Importing a CSV document
-
-Specifying a path to a CSV file using the 'file' option will import the document for parsing:
-
-```php
-
-$reader = new CSVReader([
- 'file' => 'path/to/file.csv'
+$reader = new CSVReader('path/to/file.csv', [
+   'delimiter'   => ',',
+   'enclosure'   => '"',
+   'escape'      => '//',
+   'emptyRecords => true,
+   'headerOffset => 0
 ]);
 
 ```
