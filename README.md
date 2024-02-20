@@ -76,19 +76,19 @@ $reader = new CSVReader('path/to/file.csv', [
    'delimiter'   => ',',
    'enclosure'   => '"',
    'escape'      => '//',
-   'emptyRecords => true,
-   'headerOffset => 0
+   'emptyRecords' => true,
+   'headerOffset' => 0
 ]);
 
 ```
 
-It is also possible to specify a path using a set method:
+It is also possible to specify options using setter methods:
 
 ```php
 
-$reader = new CsvReader();
+$reader = new CsvReader('path/to/file.csv');
 
-$reader->setFile('path/to/file.csv');
+$reader->setDelimiter();
 
 ```
 
