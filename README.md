@@ -89,6 +89,9 @@ It is also possible to specify options using setter methods:
 $reader = new CsvReader('path/to/file.csv');
 
 $reader->setDelimiter();
+$reader->setEnclosure();
+$reader->setEscape();
+
 
 ```
 
