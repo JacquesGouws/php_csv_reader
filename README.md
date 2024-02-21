@@ -18,8 +18,6 @@ The example below prints all csv records from a file as an associative array.
 
 ```php
 
-<?php
-
 require 'vendor/autoload.php'
 require 'php_csv_reader';
 
@@ -31,8 +29,6 @@ $reader = new CsvReader('path/to/file.csv', [
 $records = $reader->extract();
 
 print_r($records);
-
-?>
 
 ```
 
@@ -91,32 +87,24 @@ $reader = new CsvReader('path/to/file.csv');
 $reader->setDelimiter();
 $reader->setEnclosure();
 $reader->setEscape();
+$reader->setHeaderOffset();
+$reader->setEmptyRecords();
 
-
-```
-
-### Specifying reader options
-
-The following options are currently available to a reader instance:
-
-** These options can either be set when calling the constructor or via setter methods.
-
-```php
-
-[
-
-'file'         => ''
-'delimiter'    => ','
-'escape'       => ''
-'enclosure'    => ''
-'emptyRecords' => true
-'headerOffset' => 0
-
-]
 
 ```
 
 ### Retrieving reader options
 
+Options can be retrieved using getter methods:
 
+```php
 
+$reader = new CsvReader('path/to/file.csv');
+
+$reader->getDelimiter();
+$reader->getEnclosure();
+$reader->getEscape();
+$reader->getHeaderOffset();
+$reader->getEmptyRecords();
+
+```
