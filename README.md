@@ -108,3 +108,23 @@ $reader->getHeaderOffset();
 $reader->getEmptyRecords();
 
 ```
+
+### Header Offsets
+
+Use the header offset option to specify the location of the header record using indexed positioning:
+
+```php
+
+$reader->setHeaderOffset(0);
+
+```
+
+Pass a null value to indicate that the file does not contain a header:
+
+```php
+
+$reader->setHeaderOffset(null);
+
+```
+
+### Empty Records
