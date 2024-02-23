@@ -8,8 +8,8 @@ Easily parse csv documents and extract records using a minimalist syntax.
 
 ### Dependencies
 
-- League CSV 7.4
-- PHP 7.4
+- League CSV > 9.0
+- PHP > 7.4
 
 
 ### Quick start example
