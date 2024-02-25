@@ -92,9 +92,25 @@ class CsvReader2 {
   |
   */
 
-  public function extract() : array {
+  public function extract($constraints = []) : array {
+
+    $limit  = -1;
+    $offset = 0;
     
-    return iterator_to_array($this->getReader()->getRecords());
+    if(isset($constraints['limit'])){
+      $limit = $constraints['limit'];
+    }
+
+    if(isset($constraints['offset'])){
+      $offset($constraints['offset']);
+    }
+
+    $statement = Statement::create()
+      ->offset($offset)
+      ->limit($limit)
+      ->process($this->getReader());
+
+    return iterator_to_array($statement);
 
   }
 
