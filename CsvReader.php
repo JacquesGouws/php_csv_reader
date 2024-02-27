@@ -61,25 +61,11 @@ class CsvReader2 {
 
     if(!empty($options)){
 
-      if(isset($options['delimiter'])){
-        $this->setDelimiter($options['delimiter']);
-      }
-
-      if(isset($options['enclosure'])){
-        $this->setEnclosure($options['enclosure']);
-      }
-
-      if(isset($options['escape'])){
-        $this->setEscape($options['escape']);
-      }
-
-      if(isset($options['emptyRecords'])){
-        $this->setEmptyRecords($options['emptyRecords']);
-      }
-
-      if(isset($options['headerOffset'])){
-        $this->setHeaderOffset($options['headerOffset']);
-      }
+      foreach ($options as $option => $value) {
+    if (method_exists($this, 'set' . ucfirst($option))) {
+        $this->{'set' . ucfirst($option)}($value);
+    }
+}
 
     }
 
