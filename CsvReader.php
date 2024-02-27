@@ -61,9 +61,10 @@ class CsvReader2 {
 
     if(!empty($options)){
 
-      foreach ($options as $option => $value) {
-    if (method_exists($this, 'set' . ucfirst($option))) {
-        $this->{'set' . ucfirst($option)}($value);
+      foreach ($options as $option => $value)          {
+    $setterMethod = 'set' . ucfirst($option);
+    if (method_exists($this, $setterMethod)) {
+        $this->$setterMethod($value);
     }
 }
 
